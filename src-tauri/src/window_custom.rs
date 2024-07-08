@@ -1,4 +1,3 @@
-#[cfg(target_os = "macos")]
 pub mod macos {
   use cocoa::appkit::{NSWindow, NSWindowCollectionBehavior};
   use tauri::{Runtime, Window};
@@ -6,7 +5,6 @@ pub mod macos {
 
   pub trait WindowExtMacos {
     fn remove_shadow(&self);
-
     fn set_float_panel(&self, level: i32);
   }
 
@@ -43,4 +41,3 @@ pub mod macos {
     }
   }
 }
-

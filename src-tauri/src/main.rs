@@ -14,18 +14,19 @@ fn main() {
   flags.remove(StateFlags::VISIBLE);
 
   let window_state_plugin = tauri_plugin_window_state::Builder::default().with_state_flags(flags);
-  let mut app = tauri::Builder::default().plugin(window_state_plugin.build());
+  let mut app = tauri::Builder::default();
 
-  #[cfg(target_os = "macos")]
-  {
-    app = app.plugin(tauri_nspanel::init());
-  }
+  app = app
+    .plugin(window_state_plugin.build())
+    .plugin(tauri_nspanel::init());
 
   app
     .setup(|app| {
       let window = app.get_window("main").unwrap();
 
       window.remove_shadow();
+
+      // FIXME: this is crashing the app for some reason?
       window.set_float_panel(HIGHER_LEVEL_THAN_LEAGUE);
 
       Ok(())

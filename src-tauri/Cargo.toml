@@ -1,10 +1,10 @@
 [package]
-name = "overlayed"
+name = "window-save-state-bug"
 version = "0.0.0"
-description = "Voice chat overlay for Discord"
-authors = ["Team Overlayed"]
-license = "AGPL-3.0"
-repository = "https://github.com/overlayeddev/overlayed"
+description = "a repro of the bug"
+authors = ["Hacksore"]
+license = "MIT"
+repository = "https://github.com/Hacksore/window-save-state-bug"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -13,20 +13,14 @@ edition = "2021"
 tauri-build = { version = "1.5.2", features = [] }
 
 [dependencies]
-tauri = { version = "1.6.8", features = [
+tauri = { version = "1.6.8", features = [ "macos-private-api", "shell-open",
   "process-exit",
-  "shell-open",
-  "devtools",
-  "icon-ico",
-  "icon-png",
 ] }
 serde = { version = "1.0.203", features = ["derive"] }
 tokio = { version = "1.38.0", features = [
   "full",
 ] } # Required for asynchronous operations
-tauri-plugin-websocket = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 tauri-plugin-window-state = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
-tauri-plugin-single-instance = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 anyhow = "1.0.86"
 
 # macos dependencies
