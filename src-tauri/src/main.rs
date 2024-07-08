@@ -24,6 +24,9 @@ fn main() {
     .setup(|app| {
       let window = app.get_window("main").unwrap();
 
+      // NOTE: why is this not working from the tauri.conf.json 😂
+      window.set_decorations(false)?;
+
       window.remove_shadow();
 
       // FIXME: this is crashing the app for some reason?
