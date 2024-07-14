@@ -8,7 +8,7 @@ pub mod macos {
 
   impl<R: Runtime> WindowExtMacos for Window<R> {
     fn set_level(&self, level: i32) {
-      let panel = self.to_panel().unwrap();
+      let panel = self.to_panel().expect("failed to create NSPanel");
 
       panel.set_level(level);
 
