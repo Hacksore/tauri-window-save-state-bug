@@ -8,7 +8,11 @@ function App() {
       <button
         onClick={async (e) => {
           e.preventDefault();
-          await saveWindowState(StateFlags.ALL);
+          try {
+            await saveWindowState(StateFlags.ALL);
+          } catch (e: any) {
+            console.error(e);
+          }
           await exit();
         }}
       >
