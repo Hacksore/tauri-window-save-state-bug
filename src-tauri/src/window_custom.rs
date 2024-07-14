@@ -1,26 +1,13 @@
 pub mod macos {
-  use cocoa::appkit::{NSWindow, NSWindowCollectionBehavior};
+  use cocoa::appkit::NSWindowCollectionBehavior;
   use tauri::{Runtime, Window};
   use tauri_nspanel::WindowExt;
 
   pub trait WindowExtMacos {
-    fn remove_shadow(&self);
     fn set_float_panel(&self, level: i32);
   }
 
   impl<R: Runtime> WindowExtMacos for Window<R> {
-    fn remove_shadow(&self) {
-      unsafe {
-        let id = self.ns_window().unwrap() as cocoa::base::id;
-
-        #[cfg(target_arch = "aarch64")]
-        id.setHasShadow_(false);
-
-        #[cfg(target_arch = "x86_64")]
-        id.setHasShadow_(0);
-      }
-    }
-
     fn set_float_panel(&self, level: i32) {
       let panel = self.to_panel().unwrap();
 
