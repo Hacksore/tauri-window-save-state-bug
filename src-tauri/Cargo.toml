@@ -22,6 +22,7 @@ tokio = { version = "1.38.0", features = [
 ] } # Required for asynchronous operations
 tauri-plugin-window-state = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 anyhow = "1.0.86"
+cocoa = "0.25.0"
 
 # macos dependencies
 [target.'cfg(target_os = "macos")'.dependencies]
