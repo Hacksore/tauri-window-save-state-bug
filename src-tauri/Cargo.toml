@@ -13,20 +13,8 @@ edition = "2021"
 tauri-build = { version = "1.5.2", features = [] }
 
 [dependencies]
-tauri = { version = "1.6.8", features = [ "macos-private-api", "shell-open",
-  "process-exit",
-] }
-serde = { version = "1.0.203", features = ["derive"] }
-tokio = { version = "1.38.0", features = [
-  "full",
-] } # Required for asynchronous operations
+tauri = { version = "1.6.8", features = [ "shell-open", "macos-private-api", "process-exit" ] }
 tauri-plugin-window-state = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
-anyhow = "1.0.86"
-cocoa = "0.25.0"
-
-# macos dependencies
-[target.'cfg(target_os = "macos")'.dependencies]
-objc = "0.2.7"
 cocoa = "0.25.0"
 tauri-nspanel = { git = "https://github.com/ahkohd/tauri-nspanel", branch = "v1" }
 
