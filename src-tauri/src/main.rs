@@ -13,16 +13,16 @@ fn main() {
   let mut app = tauri::Builder::default();
 
   app = app
-    // FIXME: fi we disable this plugin it will work
+    // FIXME: if we disable this plugin it will start
     .plugin(tauri_plugin_window_state::Builder::default().build())
     .plugin(tauri_nspanel::init());
 
   app
     .setup(|app| {
-      let window = app.get_window("main").unwrap();
+      let window = app.get_window("main").expect("Can't find main window");
 
       // FIXME: this is crashing the app for some reason?
-      window.set_float_panel(HIGHER_LEVEL_THAN_LEAGUE);
+      window.set_level(HIGHER_LEVEL_THAN_LEAGUE);
 
       Ok(())
     })
