@@ -13,7 +13,7 @@ edition = "2021"
 tauri-build = { version = "1.5.2", features = [] }
 
 [dependencies]
-tauri = { version = "1.6.8", features = [ "shell-open", "macos-private-api", "process-exit" ] }
+tauri = { version = "1.6.8", features = [ "window-start-dragging", "shell-open", "macos-private-api", "process-exit" ] }
 tauri-plugin-window-state = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
 cocoa = "0.25.0"
 tauri-nspanel = { git = "https://github.com/ahkohd/tauri-nspanel", branch = "v1" }

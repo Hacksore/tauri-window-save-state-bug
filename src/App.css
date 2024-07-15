@@ -1,0 +1,10 @@
+.container {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  gap: 20px;
+}

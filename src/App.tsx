@@ -4,12 +4,13 @@ import { exit } from "@tauri-apps/api/process";
 
 function App() {
   return (
-    <div className="container">
+    <div data-tauri-drag-region className="container">
       <button
         onClick={async (e) => {
           e.preventDefault();
           try {
-            await saveWindowState(StateFlags.ALL);
+            const sizeAndPos = StateFlags.POSITION | StateFlags.SIZE;
+            await saveWindowState(sizeAndPos);
           } catch (e: any) {
             console.error(e);
           }
